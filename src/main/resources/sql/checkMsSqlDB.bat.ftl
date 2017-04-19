@@ -12,7 +12,7 @@ setlocal
 <#assign commandOpts='-b -S ${container.serverName}' />
 
 <#if cmn.lookup('username')?? && cmn.lookup('password')??>
-  <#assign commandOpts="${commandOpts} -U ${cmn.lookup('username')} -P ${cmn.lookup('password')}" />
+  <#assign commandOpts="${commandOpts} -U ${cmn.lookup('username')} -P \"${cmn.lookup('password')}\"" />
 </#if>
 
 <#if (container.databaseName?has_content) >

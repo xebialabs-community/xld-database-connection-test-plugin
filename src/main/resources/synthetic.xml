@@ -10,7 +10,7 @@ FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALA
 
 <type-modification type="sql.OracleClient">
     <property name="checkScript" default="sql/checkOracleDB" hidden="true"/>
-    <property name="testSql" kind="string" default="SELECT * FROM v\$version;" hidden="true" />
+    <property name="testSql" kind="string" default="SELECT * FROM v$version;" hidden="true" />
     <method name="check"/>
 </type-modification>
 <type-modification type="sql.MySqlClient">

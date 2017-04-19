@@ -28,10 +28,10 @@ echo WHENEVER SQLERROR EXIT 1 ROLLBACK; > wrapper.sql
 echo WHENEVER OSERROR EXIT 2 ROLLBACK; >> wrapper.sql
 echo ${container.testSql} >> wrapper.sql
 
-echo EXIT | "${container.oraHome}\bin\sqlplus" ${cmn.lookup('additionalOptions')!} -L ${cmn.lookup('username')}/${cmn.lookup('password')}@${container.sid} @ wrapper.sql 
+echo EXIT | "${container.oraHome}\bin\sqlplus" ${cmn.lookup('additionalOptions')!} -L ${cmn.lookup('username')}/${cmn.lookup('password')}@${container.sid} @ wrapper.sql
+set RES=%ERRORLEVEL%
 del wrapper.sql
 
-set RES=%ERRORLEVEL%
 if not %RES% == 0 (
   exit %RES%
 )
