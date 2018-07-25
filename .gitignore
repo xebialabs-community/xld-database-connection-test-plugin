@@ -1,4 +1,8 @@
+.classpath
+.project
+.settings
 .gradle
 .idea/*
 build
+bin
 *swp
