@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.*
+
 plugins {
   id "com.github.hierynomus.license" version "0.14.0"
   id "com.xebialabs.xl.docker" version "1.1.0"
@@ -8,31 +10,6 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
-
-group = 'com.xebialabs.deployit.community'
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
-version = '1.0.4'
-def apiVersion = '1.0.2'
-def xldeployHome = "$System.env.XLDEPLOY_HOME"
-
-configurations {
-  compile {
-    transitive = false
-  }
-}
-
-sourceSets {
-        itest {
-            java {
-                srcDirs = ['src/test/itest']
-            }
-            //compileClasspath = sourceSets.main.output + configurations.testCompile + configurations.itestCompile
-            //runtimeClasspath = sourceSets.itest.output + configurations.itestCompile + sourceSets.main.output + configurations.itestRuntime
-        }
-}
-
-import org.apache.tools.ant.filters.*
  
 processResources {
     filter ReplaceTokens, tokens: [
@@ -41,34 +18,9 @@ processResources {
     ]
 }
 
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = "javadoc"
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar, javadocJar
-}
-
 license {
   header rootProject.file('License.md')
   strictCheck true
   ext.year = Calendar.getInstance().get(Calendar.YEAR)
   ext.name = 'XEBIALABS'
-}
-
-
-task itest(dependsOn: 'itestClasses',type: Test) {
-        testClassesDir = sourceSets.itest.output.classesDir
-        classpath = sourceSets.itest.runtimeClasspath
-}  
-
-itest.configure {
-        useJUnit() {
-        }
-}   
+} 
