@@ -11,10 +11,19 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
  
-processResources {
+
+if (!project.hasProperty('release.scope')) {
+  project.ext['release.scope'] = 'patch'
+}
+
+if (!project.hasProperty('release.useLastTag')) {
+  project.ext['release.useLastTag'] = true
+}
+
+processResources.configure {
     filter ReplaceTokens, tokens: [
-        "project.version": project.property("version"),
-        "project.artifactId": project.property("name")
+            'project.version': version.toString(),
+            'project.name': rootProject.name
     ]
 }
 
