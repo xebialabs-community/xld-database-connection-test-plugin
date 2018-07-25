@@ -5,6 +5,7 @@ deploy:
     secure: APNbQJrjr6yYvatNbzK8Y+xbBFn94/hqlJAolB7KMeUGvdM5UEAqw3e/tWJw1I1UauglGOoeODjeMp004HgosqpUT7tMNT+vPA5C30uaw8wAySgrCO0JSuxP3A23N2JMOLukwCTI/to35bqXJCbWZZI2MFReBex4GLbaP+su9M/8i60T12WxCkNJXmxiVYHbcOrSQjxm1luC/DG9tMA+f0OSQy/02X5loUTAjjsBQKc9+qbUMTIyhjOisqAWf4hBifvVoU8kzidKYeSxSNDu+PGzA2t6J0aSvA8+6bsqFNKRR0fIo6IlMOok4nGWHOc27vQ3P76REAe6aBLyqjO0hCTetTqkUfJIEum6JnlzYZAWzyKaC4W+tMVY66MMUJfC6enipRcy58aMSWRCAYZlzGsKl9CAiF8KZITG0UICi6UFMTX4ONJgvOTSvd+93paBdqPacZH5vl28tlI5ot/DjmP+5t+63csx5ZpK1uafXO4pl01v320q/p8gqAQfzb5imZ4VUGKRSOgonMJ5GVTfUYvTp5JzsbsJHbX31wwduAMvTjkEJfhC0UWTxmmu4S2mN/KBbYyTj13BB0UDEMY9t8SukdbsqKkmJuDCDJeA9+wk1JQY0xDw8JVXGZG44I9YO1y/lB2k0GyvpFEPF8Bh0QIDJCws57mJCcygUFNwYcE=
   file_glob: true
   file: build/distributions/*
+  skip_cleanup: true
   on:
     all_branches: true
     tags: true
